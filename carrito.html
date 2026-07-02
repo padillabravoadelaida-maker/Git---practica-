@@ -14,87 +14,63 @@
 
 <body>
 
-<header class="navbar">
+    <!-- BARRA DE NAVEGACIÓN -->
 
-    <h1 class="logo">
-        STYLE MATTELSA K
-    </h1>
+    <header class="navbar">
 
-    <nav>
+        <h1 class="logo">STYLE MATTELSA K</h1>
 
-        <a href="index.html">Inicio</a>
-        <a href="hombre.html">Hombre</a>
-        <a href="mujer.html">Mujer</a>
-        <a href="colecciones.html">Colecciones</a>
-        <a href="promociones.html">Promociones</a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="hombre.html">Hombre</a>
+            <a href="mujer.html">Mujer</a>
+            <a href="colecciones.html">Colecciones</a>
+            <a href="promociones.html">Promociones</a>
+        </nav>
 
-    </nav>
+    </header>
 
-</header>
+    <!-- TÍTULO -->
 
-<section class="titulo-pagina">
+    <section class="titulo-pagina">
 
-    <h2>TU CARRITO</h2>
+        <h2>TU CARRITO</h2>
 
-    <p>
-        Aquí aparecerán tus productos seleccionados.
-    </p>
-<section class="carrito" id="lista-carrito">
+        <p>
+            Aquí aparecerán los productos que agregues desde la tienda.
+        </p>
 
-</section>
-</section>
+    </section>
 
-<section class="carrito">
+    <!-- PRODUCTOS DEL CARRITO -->
 
-    <!-- PRODUCTO 1 -->
+    <section class="carrito">
 
-    <div class="carrito-card">
-
-        <img src="img/producto1.jpg" alt="">
-
-        <div>
-
-            <h3>jean wide</h3>
-
-            <p>$89.900</p>
+        <div id="lista-carrito">
 
         </div>
 
-    </div>
+        <!-- TOTAL -->
 
-    <!-- PRODUCTO 2 -->
+        <div class="total">
 
-    <div class="carrito-card">
+            <h3 id="cantidad-productos"></h3>
 
-        <img src="img/h1.jpg" alt="">
-
-        <div>
-
-            <h3>Camiseta </h3>
-
-            <p>$69.900</p>
+            <h3 id="total-compra"></h3>
+<button onclick="finalizarCompra()">
+    FINALIZAR COMPRA
+</button>
 
         </div>
 
-    </div>
+    </section>
 
-    <!-- TOTAL -->
+    <script src="js/script.js"></script>
 
-    <div class="total">
-
-        <h3>Total: $158.000</h3>
-
-        <button>
-            FINALIZAR COMPRA
-        </button>
-
-    </div>
-
-</section>
+    <script>
+        mostrarCarrito();
+    </script>
 
 </body>
-<script src="js/script.js"></script>
-<script>
-    mostrarCarrito();
-</script>
+
 </html>
