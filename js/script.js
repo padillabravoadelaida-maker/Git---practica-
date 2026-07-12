@@ -1,5 +1,8 @@
+ // ==========================================
+// MÓDULO DEL CARRITO DE COMPRAS
+// Permite agregar productos al carrito.
+// ==========================================
 function agregarCarrito(nombre, precio, imagen){
-
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     carrito.push({
@@ -12,7 +15,10 @@ function agregarCarrito(nombre, precio, imagen){
 
     alert("Producto añadido al carrito 🛒");
 }
-
+// ==========================================
+// MÓDULO DE BÚSQUEDA DE PRODUCTOS
+// Permite buscar productos por nombre.
+// ==========================================
 function buscarProducto(){
 
     let input = document.getElementById("input-busqueda");
@@ -69,6 +75,10 @@ function buscarProducto(){
     });
 
 }
+// ==========================================
+// MÓDULO PARA MOSTRAR EL CARRITO
+// Muestra los productos, cantidad y total.
+// ==========================================
 
 function mostrarCarrito(){
 
@@ -126,12 +136,15 @@ function mostrarCarrito(){
     if(cantidad){
         cantidad.innerHTML = "Productos: " + carrito.length;
     }
-
     if(totalCompra){
         totalCompra.innerHTML = "Total: $" + total.toLocaleString("es-CO");
     }
 
 }
+// ==========================================
+// ELIMINAR PRODUCTOS DEL CARRITO
+// Elimina un producto seleccionado.
+// ==========================================
 
 function eliminarProducto(indice){
 
@@ -152,7 +165,10 @@ function vaciarCarrito(){
     mostrarCarrito();
 
 }
-
+// ==========================================
+// FINALIZAR COMPRA
+// Vacía el carrito después de confirmar.
+// ==========================================
 function finalizarCompra(){
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -178,5 +194,125 @@ function finalizarCompra(){
         mostrarCarrito();
 
     }
+
+}
+// ==========================================
+// INICIAR SESIÓN
+// Valida los campos del formulario.
+// ==========================================
+
+function iniciarSesion(){
+
+    let correo = document.getElementById("correo").value;
+
+    let password = document.getElementById("password").value;
+
+    if(correo === "" || password === ""){
+
+        alert("Por favor completa todos los campos.");
+
+        return;
+
+    }
+
+    alert("¡Bienvenida a STYLE MATTELSA K! ❤️");
+
+    window.location.href = "index.html";
+
+}
+// ==========================================
+// INICIAR SESIÓN
+// ==========================================
+
+function iniciarSesion(){
+
+    let correo = document.getElementById("correo").value;
+
+    let password = document.getElementById("password").value;
+
+    if(correo === "" || password === ""){
+
+        alert("Por favor completa todos los campos.");
+
+        return;
+
+    }
+
+    // Leer usuario guardado
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+
+    if(usuario === null){
+
+        alert("No existe ningún usuario registrado.");
+
+        return;
+
+    }
+
+    if(
+        correo === usuario.correo &&
+        password === usuario.password
+    ){
+
+        alert("¡Bienvenida " + usuario.nombre + "! ❤️");
+
+        window.location.href = "index.html";
+
+    }else{
+
+        alert("Correo o contraseña incorrectos.");
+
+    }
+
+}// ==========================================
+// REGISTRO DE USUARIOS
+// ==========================================
+
+function registrarUsuario(){
+
+    let nombre = document.getElementById("nombre").value;
+
+    let correo = document.getElementById("correoRegistro").value;
+
+    let password = document.getElementById("passwordRegistro").value;
+
+    let confirmar = document.getElementById("confirmarPassword").value;
+
+    if(
+        nombre === "" ||
+        correo === "" ||
+        password === "" ||
+        confirmar === ""
+    ){
+
+        alert("Completa todos los campos.");
+
+        return;
+
+    }
+
+    if(password !== confirmar){
+
+        alert("Las contraseñas no coinciden.");
+
+        return;
+
+    }
+
+    let usuario = {
+
+        nombre: nombre,
+
+        correo: correo,
+
+        password: password
+
+    };
+
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+
+    alert("Cuenta creada correctamente. ❤️");
+
+    window.location.href = "login.html";
 
 }
